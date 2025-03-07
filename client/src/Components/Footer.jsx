@@ -3,33 +3,33 @@ import { assets } from '../assets/assets';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-800 py-12 px-6 sm:px-16">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between space-y-10 lg:space-y-0">
+    <footer className="bg-white text-gray-800 py-8 px-6 sm:px-12">
+      <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between space-y-8 lg:space-y-0">
 
         {/* Left Section - Logo & Social Media */}
-        <div className="w-full lg:w-1/3 space-y-6">
+        <div className="w-full lg:w-1/3 space-y-4 sm:space-y-6 text-center lg:text-left">
           {/* Logo */}
-          <img width={160} src={assets.logo} alt="BitoJobs Logo" />
+          <img width={140} src={assets.logo} alt="BitoJobs Logo" className="mx-auto lg:mx-0" />
 
           {/* Social Media Icons */}
-          <div className="flex space-x-4">
+          <div className="flex justify-center lg:justify-start space-x-3">
             <a href="#" className="hover:opacity-70 transition">
-              <img width={38} src={assets.facebook_icon} alt="Facebook" />
+              <img width={32} src={assets.facebook_icon} alt="Facebook" />
             </a>
             <a href="#" className="hover:opacity-70 transition">
-              <img width={38} src={assets.twitter_icon} alt="Twitter" />
+              <img width={32} src={assets.twitter_icon} alt="Twitter" />
             </a>
             <a href="#" className="hover:opacity-70 transition">
-              <img width={38} src={assets.instagram_icon} alt="Instagram" />
+              <img width={32} src={assets.instagram_icon} alt="Instagram" />
             </a>
             <a href="#" className="hover:opacity-70 transition">
-              <img width={38} src={assets.linkedin_icon} alt="LinkedIn" />
+              <img width={32} src={assets.linkedin_icon} alt="LinkedIn" />
             </a>
           </div>
         </div>
 
         {/* Middle & Right Section - Footer Links */}
-        <div className="w-full lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 text-sm">
+        <div className="w-full lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 text-sm text-center sm:text-left">
 
           {/* About Us */}
           <div>
@@ -64,30 +64,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-semibold mb-3 uppercase tracking-wider text-gray-900">Stay Updated</h4>
-            <p className="text-gray-600 mb-3">Subscribe to our newsletter</p>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Enter email" 
-                className="px-3 py-2 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-              />
-              <button className="px-4 py-2 bg-gray-800 text-white hover:bg-gray-700 transition rounded-r-md font-semibold">
-                Subscribe
-              </button>
-            </div>
-          </div>
-
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-gray-600 text-sm mt-12 border-t pt-6">
+      <div className="text-center text-gray-600 text-sm mt-8 sm:mt-10 border-t pt-4">
         © {new Date().getFullYear()} BitoJobs | All rights reserved.
       </div>
-
     </footer>
   );
 };

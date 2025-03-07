@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <div className="shadow py-4 bg-white">
+      <div className="shadow py-4 bg-white fixed w-full top-0 left-0 z-50">
         <div className="container px-4 2xl:px-20 mx-auto flex justify-between items-center">
           {/* Logo */}
           <img src={assets.logo} alt="Logo" className="h-8 sm:h-10" />
@@ -68,68 +68,76 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 p-6`}
-        >
-          {/* Close Button */}
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="absolute top-4 right-4"
-          >
-            <FiX className="w-7 h-7" />
-          </button>
+          className="fixed inset-0  bg-opacity-50 z-40"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
 
-          {/* Mobile Menu Items */}
-          <div className="flex flex-col gap-6 mt-10">
-            {isUserAuthenticated ? (
-              <>
-                <Link
-                  to="/application"
-                  className="text-gray-600 hover:underline"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Applied Jobs
-                </Link>
-                <p>
-                  Welcome, {userData?.firstName || userData?.name || "User"}
-                </p>
-                <button
-                  onClick={() => {
-                    userlogout();
-                    setMenuOpen(false);
-                  }}
-                  className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className="text-gray-600"
-                  onClick={() => {
-                    setShowRecruiterLogin(true);
-                    setMenuOpen(false);
-                  }}
-                >
-                  Recruiter Login
-                </button>
-                <button
-                  onClick={() => {
-                    setLoginOpen(true);
-                    setMenuOpen(false);
-                  }}
-                  className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
-                >
-                  Login
-                </button>
-              </>
-            )}
-          </div>
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 p-6 z-50`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-4 right-4"
+        >
+          <FiX className="w-7 h-7" />
+        </button>
+
+        {/* Mobile Menu Items */}
+        <div className="flex flex-col gap-6 mt-10">
+          {isUserAuthenticated ? (
+            <>
+              <Link
+                to="/application"
+                className="text-gray-600 hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Applied Jobs
+              </Link>
+              <p>
+                Welcome, {userData?.firstName || userData?.name || "User"}
+              </p>
+              <button
+                onClick={() => {
+                  userlogout();
+                  setMenuOpen(false);
+                }}
+                className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="text-gray-600"
+                onClick={() => {
+                  setShowRecruiterLogin(true);
+                  setMenuOpen(false);
+                }}
+              >
+                Recruiter Login
+              </button>
+              <button
+                onClick={() => {
+                  setLoginOpen(true);
+                  setMenuOpen(false);
+                }}
+                className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+              >
+                Login
+              </button>
+            </>
+          )}
         </div>
       </div>
 
